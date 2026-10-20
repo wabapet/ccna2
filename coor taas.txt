@@ -1,0 +1,17 @@
+!@coretaas
+conf t
+ ip routing
+ int fa0/9
+  no sw
+  no shut
+  ip add 10.182.45.60 255.255.255.224
+  end
+
+!@corebaba
+conf t
+ ip routing
+ int fa0/9
+  no sw
+  no shut
+  ip add 10.182.45.65 255.255.255.224
+  end

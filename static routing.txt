@@ -1,0 +1,42 @@
+static routing 
+
+[DESTINATION] [MASK] [NEXT/HOP/EXIT INT]
+
+
+!@R1
+conf t 
+ ip route 10.1.1.8 255.255.255.255 10.1.1.2
+ end
+ ping 10.1.1.10
+
+!@R1
+conf t 
+ ip route 2.2.2.2 255.255.255.255 10.1.1.2
+ end
+ ping 2.2.2.2
+
+!@R1 TO 10.1.1.6 CONFIGURE R3 STATIC ROUT TO REACH R1
+conf t 
+ ip route 10.1.1.4 255.255.255.255 10.1.1.2
+ end
+ ping 10.1.1.6
+
+!@R3 
+conf t 
+ ip route 10.1.1.0 255.255.255.255 10.1.1.5
+ end
+ ping 10.1.1.1
+
+
+!@R4 
+conf t 
+ ip route 10.1.1.0 255.255.255.255 10.1.1.9
+ end
+ ping 10.1.1.1
+
+
+!@R2
+conf t 
+ ip route 10.1.1.8 255.255.255.255 10.1.1.6
+ end
+ ping 10.1.1.10
